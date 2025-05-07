@@ -4,7 +4,6 @@ import config from "../config/confi-dev.js";
 
 const connect = async () => {
     try {
-
         return await mysql.createConnection(config)
     } catch (error) {
         console.warn("error:", error.message)
