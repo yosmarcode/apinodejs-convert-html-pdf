@@ -37,14 +37,16 @@ export const converthtmlpdf = async (req, res) => {
                 console.log("Error creating pdf.");
             });
         browser.close();
-
+        console.log('pdf ==>', pdf)
         res.status(200).json({
             success: true,
+            file: {name:name_file, path:pathSave + name_file},
+            base64: pdf,
             message: "ATENCION SE HA CREADO EL PDF DE MANERA CORRECTA",
         });
 
         // crea registro de historia archivo convertidos del usuario
-        create(email, name_file);
+       // create(email, name_file);
 
     } catch (error) {
         console.warn("ERROR PDF", error.message);
